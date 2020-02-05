@@ -129,15 +129,12 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        if (strcmp(candidates[i].name, name) == 0)
         {
-            if (strcmp(candidates[j].name, name) == 0)
-            {
-                preferences[i][j] = rank;
-                return true;
-            }
+            preferences[voter][rank] = i;
+            return true;
         }
     }
     return false;
@@ -154,6 +151,7 @@ void tabulate(void)
             if (candidates[preferences[i][j]].eliminated == false)
             {
                 candidates[preferences[i][j]].votes++;
+                break;
             }
         }
     }
@@ -167,9 +165,10 @@ bool print_winner(void)
     for (int i = 0; i < candidate_count; i++)
     {
         int win = (candidates[0].votes > candidates[i].votes) ? candidates[0].votes : candidates[i].votes;
-        if (candidates[i].votes == win)
+        if (candidates[i].votes == win && candidates[i].votes > voter_count / 2)
         {
             printf("%s\n", candidates[i].name);
+            return true;
         }
     }
     return false;
@@ -179,10 +178,10 @@ bool print_winner(void)
 int find_min(void)
 {
     // TODO
-    int minimum = candidates[0].votes;
+    int minimum = voter_count;
     for (int i = 0; i < candidate_count; i++)
     {
-        minimum = (candidates[0].votes < candidates[i].votes && candidates[i].eliminated == false) ? candidates[0].votes : candidates[i].votes;
+        minimum = (candidates[i].votes < minimum && candidates[i].eliminated == false) ? voter_count : candidates[i].votes;
     }
     return minimum;
 }
@@ -207,7 +206,7 @@ void eliminate(int min)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == min)
+        if (candidates[i].votes == min && candidates[i].eliminated == false)
         {
             candidates[i].eliminated = true;
         }
