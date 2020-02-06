@@ -1,6 +1,10 @@
+from cs50 import get_int
+
+
 while True:
-    n = int(input("Height: "))
-    if (n > 0 or n < 9):
+    n = get_int("Height: ")
+
+    if n > 0 or n < 9:
         break
 
 for i in range(n):
