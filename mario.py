@@ -1,15 +1,21 @@
 from cs50 import get_int
 
-
+# initialize a while to reprompt user for correct input
 while True:
+
+    # get heigt of pyramid
     n = get_int("Height: ")
 
-    if n > 0 or n < 9:
+
+    # check for proper height
+    if n > 0 and n < 9:
         break
 
-for i in range(n):
-    for j in range(n - 1 -i):
+
+# draw pyramid
+for index in range(n):
+    for jenga in range(n - 1 - index):
         print(' ', end='')
-    for j in range(i + 1):
+    for jenga in range(index + 1):
         print('#', end='')
     print()
