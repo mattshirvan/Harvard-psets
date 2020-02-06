@@ -143,7 +143,7 @@ bool unload(void)
 {
     // free memory
     int i = 0;
-    while (table[i] != NULL && i < word_count)
+    while (table[i] != NULL && i < INT_MAX)
     {
         node* deletor = table[i];
         table[i] = deletor->next;
