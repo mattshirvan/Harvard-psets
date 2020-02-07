@@ -15,7 +15,7 @@ words = len(text.split())
 # iterate over text
 for i in range(len(text)):
     if text[i].isalpha():
-        letters +=1
+        letters += 1
 
 # where L is the average number of letters per 100 words
 L = letters / words * 100
