@@ -28,7 +28,6 @@ def main():
             agat_count = sequence.count(agats.group())
             aatg_count = sequence.count(aatgs.group())
             tatc_count = sequence.count(tatcs.group())
-
             # AGATC AATG TATC
             name = re.search(f"{agat_count},{aatg_count},{tatc_count}", csv_file.read())
             if name:
@@ -40,6 +39,7 @@ def main():
             else:
                 print("No match")
                 exit(1)
+
     if csv_file != 'small.csv':
         # for large sequence
         agat = re.findall("AGATC(?=AGATC)", sequence)
