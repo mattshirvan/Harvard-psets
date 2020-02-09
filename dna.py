@@ -69,7 +69,7 @@ def main():
 
     # no matches at all
     else:
-        print("No matchy")
+        print("No match")
         exit(1)
 
 main()
