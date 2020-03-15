@@ -13,7 +13,7 @@ db = cs50.SQL("sqlite:///students.db")
 house = argv[1]
 
 # query the database for student roster
-roster = db.execute("SELECT first, middle, last, birth FROM students WHERE house = ? ", house)
+roster = db.execute("SELECT first, middle, last, birth FROM students WHERE house = ? ORDER BY last", house)
 
 # print house roster
 for row in roster:
