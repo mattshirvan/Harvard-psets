@@ -19,4 +19,5 @@ roster = db.execute("SELECT first, middle, last, birth FROM students WHERE house
 for row in roster:
     if row["middle"] != None:
         print(row["first"], row["middle"], row["last"] + ", born", row["birth"])
-    print(row["first"], row["last"] + ", born", row["birth"])
+    else:
+        print(row["first"], row["last"] + ", born", row["birth"])
