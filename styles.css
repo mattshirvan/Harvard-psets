@@ -1,0 +1,44 @@
+#todo {
+    color: aqua;
+}
+.rem {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: inherit;
+    color: red;
+    border: none;
+    cursor: pointer;
+}
+span {
+    color: lightgreen;
+    font-size: large;
+}
+
+.message {
+    vertical-align: top;
+    display: inline-block;
+    width: 15rem;
+    min-height: 40.625rem;
+    margin: 0.3rem 1.05rem;
+    background-color: rgb(212, 212, 212);
+}
+.message h3, h4 {
+    margin: 0;
+    padding: 0.625rem;
+    background-color: rgb(122, 122, 131);
+    color: aliceblue;
+}
+.message .image img {
+    width: 15rem;
+    height: 10rem;
+    display: block;
+}
+.message p{
+    padding: 0.625rem;
+    height: 13.75rem;
+}
+.message .images img{
+    width: 4rem;
+    padding: 0.4375rem;
+    display: inline-block;
+}
